@@ -25,7 +25,7 @@ while True:
             print ("<<-- At Client message received: " + modifiedMessage.decode() + "\n")
             clientSocket.settimeout(None)
             break;
-        except timeout:
+        except:
             print ('Resending...')
             d *= 2
 
