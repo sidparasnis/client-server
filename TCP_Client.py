@@ -8,8 +8,10 @@ clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName,serverPort))
 again = "Y"
 
-while (again=="y") | (again=="Y"):
-    message = input("\nInput int,int,operation: ")
+while True:
+    message = input("\nInput int,int,operation or 'quit' to quit: ")
+    if message == 'quit':
+        break
     print ("\n ")
     print ("-->> Sending: " + message + "\n")
 
@@ -18,7 +20,6 @@ while (again=="y") | (again=="Y"):
     modifiedMessage =  clientSocket.recv(1024)
 
     print ("<<-- At Client message received: " + modifiedMessage.decode() + "\n")
-    again = input("Do you want to repeat? (y or Y; anything else is a NO!)")
 
 print (" ")
 print ("++++   Client Program Ends   ++++")
